@@ -475,6 +475,9 @@
 			//组装员工id字符串
 			del_idstr += $(this).parents("tr").find("td:eq(1)").text()+"-";
 		});
+		if(empNames==""){
+			return false;
+		}
 		//去除empNames多余的,
 		empNames = empNames.substring(0, empNames.length-1);
 		//去除删除的id多余的-
@@ -488,6 +491,7 @@
 					alert(result.msg);
 					//回到当前页面
 					to_page(currentPage);
+					$("#check_all").prop("checked",false);
 				}
 			});
 		}

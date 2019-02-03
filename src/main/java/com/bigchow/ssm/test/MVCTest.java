@@ -54,6 +54,7 @@ public class MVCTest {
 				.andReturn();
 		//请求成功以后，请求域中会有pageInfo；我们可以取出pageInfo进行验证
 		MockHttpServletRequest request = result.getRequest();
+		@SuppressWarnings("rawtypes")
 		PageInfo pi = (PageInfo) request.getAttribute("pageInfo");
 		System.out.println("当前页码："+pi.getPageNum());
 		System.out.println("总页码："+pi.getPages());
@@ -64,6 +65,7 @@ public class MVCTest {
 			System.out.print(" "+i);
 		}
 		//获取员工数据
+		@SuppressWarnings("unchecked")
 		List<Employee> list = pi.getList();
 		for (Employee employee : list) {
 			System.out.println("ID："+employee.getEmpId()+"==>Name:"+employee.getEmpName());
